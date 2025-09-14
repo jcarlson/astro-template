@@ -4,6 +4,9 @@
   "exclude": ["dist"],
   "compilerOptions": {
     "strictNullChecks": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
