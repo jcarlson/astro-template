@@ -47,7 +47,7 @@
     "eslint:check": "eslint .",
     "eslint:fix": "eslint . --fix",
     "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write .",
+    "prettier:fix": "prettier --write .",
     "preview": "astro preview",
     "stylelint:check": "stylelint '**/*.{astro,css}'",
     "stylelint:fix": "stylelint '**/*.{astro,css}' --fix"

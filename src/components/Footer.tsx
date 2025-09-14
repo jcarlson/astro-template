@@ -22,7 +22,11 @@ export default function Footer() {
             ></path>
           </svg>
         </a>
-        <a href="https://twitter.com/astrodotbuild" target="_blank" rel="noreferrer">
+        <a
+          href="https://twitter.com/astrodotbuild"
+          target="_blank"
+          rel="noreferrer"
+        >
           <span className="sr-only">Follow Astro on Twitter</span>
           <svg
             viewBox="0 0 16 16"
@@ -37,7 +41,11 @@ export default function Footer() {
             ></path>
           </svg>
         </a>
-        <a href="https://github.com/withastro/astro" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/withastro/astro"
+          target="_blank"
+          rel="noreferrer"
+        >
           <span className="sr-only">Go to Astro&apos;s GitHub repo</span>
           <svg
             viewBox="0 0 16 16"
