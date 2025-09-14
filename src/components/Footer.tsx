@@ -7,14 +7,14 @@ export default function Footer() {
     <footer>
       &copy; {today.getFullYear()} Your name here. All rights reserved.
       <div className={Styles["social-links"]}>
-        <a href="https://m.webtoo.ls/@astro" target="_blank">
+        <a href="https://m.webtoo.ls/@astro" target="_blank" rel="noreferrer">
           <span className="sr-only">Follow Astro on Mastodon</span>
           <svg
             viewBox="0 0 16 16"
             aria-hidden="true"
             width="32"
             height="32"
-            astro-icon="social/mastodon"
+            data-astro-icon="social/mastodon"
           >
             <path
               fill="currentColor"
@@ -22,14 +22,14 @@ export default function Footer() {
             ></path>
           </svg>
         </a>
-        <a href="https://twitter.com/astrodotbuild" target="_blank">
+        <a href="https://twitter.com/astrodotbuild" target="_blank" rel="noreferrer">
           <span className="sr-only">Follow Astro on Twitter</span>
           <svg
             viewBox="0 0 16 16"
             aria-hidden="true"
             width="32"
             height="32"
-            astro-icon="social/twitter"
+            data-astro-icon="social/twitter"
           >
             <path
               fill="currentColor"
@@ -37,14 +37,14 @@ export default function Footer() {
             ></path>
           </svg>
         </a>
-        <a href="https://github.com/withastro/astro" target="_blank">
-          <span className="sr-only">Go to Astro's GitHub repo</span>
+        <a href="https://github.com/withastro/astro" target="_blank" rel="noreferrer">
+          <span className="sr-only">Go to Astro&apos;s GitHub repo</span>
           <svg
             viewBox="0 0 16 16"
             aria-hidden="true"
             width="32"
             height="32"
-            astro-icon="social/github"
+            data-astro-icon="social/github"
           >
             <path
               fill="currentColor"
