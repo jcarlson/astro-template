@@ -19,6 +19,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/ts-plugin": "^1.10.4",
     "@eslint/js": "^9.35.0",
+    "@testing-library/react": "^16.3.0",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
     "@typescript-eslint/eslint-plugin": "^8.43.0",
@@ -29,6 +30,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "jsdom": "^27.0.0",
     "postcss-html": "^1.8.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
@@ -37,7 +39,8 @@
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^39.0.0",
     "stylelint-config-tailwindcss": "^1.0.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   },
   "scripts": {
     "astro": "astro",
@@ -50,6 +53,7 @@
     "prettier:fix": "prettier --write .",
     "preview": "astro preview",
     "stylelint:check": "stylelint '**/*.{astro,css}'",
-    "stylelint:fix": "stylelint '**/*.{astro,css}' --fix"
+    "stylelint:fix": "stylelint '**/*.{astro,css}' --fix",
+    "test": "vitest"
   }
 }
