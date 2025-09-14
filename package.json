@@ -20,9 +20,14 @@
     "@astrojs/ts-plugin": "^1.10.4",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",
+    "postcss-html": "^1.8.0",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.14",
+    "stylelint": "^16.24.0",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-config-tailwindcss": "^1.0.0",
     "typescript": "^5.9.2"
   },
   "scripts": {
@@ -30,8 +35,10 @@
     "build": "astro build",
     "check": "astro check",
     "dev": "astro dev",
-    "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
-    "preview": "astro preview"
+    "prettier:check": "prettier --check .",
+    "prettier:write": "prettier --write .",
+    "preview": "astro preview",
+    "stylelint:check": "stylelint '**/*.{astro,css}'",
+    "stylelint:fix": "stylelint '**/*.{astro,css}' --fix"
   }
 }
