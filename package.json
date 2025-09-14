@@ -1,5 +1,6 @@
 {
   "name": "castlerockreview",
+  "packageManager": "pnpm@10.16.1",
   "private": true,
   "type": "module",
   "scripts": {
