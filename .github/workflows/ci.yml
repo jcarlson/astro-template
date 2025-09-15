@@ -31,7 +31,23 @@ jobs:
         uses: ./.github/actions/setup-environment
 
       - name: Run Unit Tests
-        run: turbo run test:unit
+        run: turbo run test:unit -- --project astro --project react
+
+  test-storybook:
+    name: Run Storybook Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
+
+      - name: Setup Playwright
+        uses: ./.github/actions/setup-playwright
+
+      - name: Run Storybook Tests
+        run: turbo run test:unit -- --project storybook
 
   test-e2e:
     name: Run E2E Tests
