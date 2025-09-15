@@ -61,6 +61,7 @@
     "astro:dev": "astro dev",
     "astro:preview": "astro preview",
     "astro:sync": "astro sync",
+    "ci": "CI=1 turbo run test",
     "eslint:check": "eslint .",
     "eslint:fix": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",

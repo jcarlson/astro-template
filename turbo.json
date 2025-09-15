@@ -1,16 +1,37 @@
 {
   "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": ["!.github/", "!README.md"],
   "tasks": {
-    "astro:check": {
-      "dependsOn": ["astro:sync"]
-    },
     "astro:build": {
       "dependsOn": ["astro:sync"],
-      "outputs": ["dist/**"]
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!.storybook/",
+        "!e2e/",
+        "!stories/",
+        "!test/",
+        "!playwright.config.ts",
+        "!vitest.config.ts"
+      ],
+      "outputLogs": "new-only",
+      "outputs": [".astro/**", "dist/**"]
+    },
+    "astro:check": {
+      "dependsOn": ["astro:sync"],
+      "inputs": [
+        "src/**",
+        ".tool-versions",
+        "astro.config.ts",
+        "tsconfig.json",
+        "types.d.ts"
+      ],
+      "outputLogs": "new-only",
+      "outputs": [".astro/**"]
     },
     "astro:dev": {
-      "cache": false,
       "dependsOn": ["astro:sync"],
+      "cache": false,
+      "interactive": true,
       "persistent": true
     },
     "astro:preview": {
@@ -19,25 +40,59 @@
       "persistent": true
     },
     "astro:sync": {
-      "outputs": [".astro/**"]
+      "inputs": [
+        "src/**",
+        ".tool-versions",
+        "astro.config.ts",
+        "tsconfig.json",
+        "types.d.ts"
+      ],
+      "outputs": [".astro/**"],
+      "outputLogs": "new-only"
     },
     "build": {
       "dependsOn": ["astro:build", "storybook:build"]
-    },
-    "ci": {
-      "dependsOn": ["test"]
     },
     "dev": {
       "cache": false,
       "persistent": true,
       "with": ["astro:dev", "storybook:dev"]
     },
+    "eslint:check": {
+      "dependsOn": ["astro:sync"],
+      "inputs": [
+        "*.{js,ts}",
+        ".storybook/**/*.{js,jsx,ts,tsx}",
+        "e2e/**/*.{js,jsx,ts,tsx}",
+        "src/**/*.{js,jsx,ts,tsx}",
+        "stories/**/*.{js,jsx,ts,tsx}",
+        "test/**/*.{js,jsx,ts,tsx}"
+      ],
+      "outputLogs": "new-only"
+    },
+    "prettier:check": {
+      "outputLogs": "new-only"
+    },
     "storybook:build": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!e2e/",
+        "!test/",
+        "!astro.config.ts",
+        "!playwright.config.ts",
+        "!vitest.config.ts"
+      ],
+      "outputLogs": "new-only",
       "outputs": ["storybook-static/**"]
     },
     "storybook:dev": {
       "cache": false,
+      "interactive": true,
       "persistent": true
+    },
+    "stylelint:check": {
+      "inputs": ["**/*.{astro,css}"],
+      "outputLogs": "new-only"
     },
     "test": {
       "dependsOn": ["test:checks", "test:e2e", "test:storybook", "test:unit"]
@@ -51,7 +106,37 @@
       ]
     },
     "test:e2e": {
+      "dependsOn": ["astro:build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!.storybook/",
+        "!stories/",
+        "!test/",
+        "!vitest.config.ts"
+      ],
+      "outputLogs": "new-only",
       "outputs": ["playwright-report/index.html", "test-results/**"]
+    },
+    "test:storybook": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!e2e/",
+        "!test/",
+        "!astro.config.ts",
+        "!playwright.config.ts"
+      ],
+      "outputLogs": "new-only"
+    },
+    "test:unit": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!.storybook/",
+        "!e2e/",
+        "!public/",
+        "!stories/",
+        "!playwright.config.ts"
+      ],
+      "outputLogs": "new-only"
     }
   },
   "ui": "tui"
