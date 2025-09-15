@@ -18,7 +18,7 @@ jobs:
         uses: ./.github/actions/setup-environment
 
       - name: Run Checks
-        run: turbo run test:checks
+        run: turbo run test:checks --continue
 
   test-storybook:
     name: Run Storybook Tests
