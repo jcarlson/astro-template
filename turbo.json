@@ -24,6 +24,9 @@
     "build": {
       "dependsOn": ["astro:build", "storybook:build"]
     },
+    "ci": {
+      "dependsOn": ["test"]
+    },
     "dev": {
       "cache": false,
       "persistent": true,
@@ -48,10 +51,7 @@
       ]
     },
     "test:e2e": {
-      "outputs": [
-        "playwright-report/index.html",
-        "test-results/**"
-      ]
+      "outputs": ["playwright-report/index.html", "test-results/**"]
     }
   },
   "ui": "tui"

@@ -1,7 +1,10 @@
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";
 import { getViteConfig } from "astro/config";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const vitestConfig = defineConfig({
   test: {
@@ -38,7 +41,7 @@ const vitestConfig = defineConfig({
           name: "storybook",
           setupFiles: [".storybook/vitest.setup.ts"],
         },
-      }
+      },
     ],
   },
 });
