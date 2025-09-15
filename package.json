@@ -56,21 +56,22 @@
   },
   "scripts": {
     "astro": "astro",
+    "astro:build": "astro build",
     "astro:check": "astro check",
-    "build": "astro build",
-    "dev": "astro dev",
+    "astro:dev": "astro dev",
+    "astro:preview": "astro preview",
     "eslint:check": "eslint .",
+    "astro:sync": "astro sync",
     "eslint:fix": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "preview": "astro preview",
     "storybook:build": "storybook build",
     "storybook:dev": "storybook dev --no-open --port 6006",
     "stylelint:check": "stylelint '**/*.{astro,css}'",
     "stylelint:fix": "stylelint '**/*.{astro,css}' --fix",
-    "sync": "astro sync",
     "test:e2e": "playwright test",
-    "test:unit": "vitest run"
+    "test:storybook": "vitest run --project storybook",
+    "test:unit": "vitest run --project astro --project react"
   }
 }

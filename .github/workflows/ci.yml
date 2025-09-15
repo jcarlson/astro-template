@@ -8,7 +8,7 @@ on:
 
 jobs:
   check:
-    name: Check Lint and Style
+    name: Run Checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -18,7 +18,23 @@ jobs:
         uses: ./.github/actions/setup-environment
 
       - name: Run Checks
-        run: turbo run checks
+        run: turbo run test:checks
+
+  test-storybook:
+    name: Run Storybook Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+
+      - name: Setup Environment
+        uses: ./.github/actions/setup-environment
+
+      - name: Setup Playwright
+        uses: ./.github/actions/setup-playwright
+
+      - name: Run Storybook Tests
+        run: turbo run test:storybook
 
   test-unit:
     name: Run Unit Tests

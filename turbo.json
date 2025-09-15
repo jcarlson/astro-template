@@ -2,35 +2,50 @@
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
     "astro:check": {
-      "dependsOn": ["sync"]
+      "dependsOn": ["astro:sync"]
     },
-    "build": {
-      "dependsOn": ["sync"],
+    "astro:build": {
+      "dependsOn": ["astro:sync"],
       "outputs": ["dist/**"]
     },
-    "ci": {
-      "dependsOn": ["checks", "test:unit", "test:e2e"]
+    "astro:dev": {
+      "cache": false,
+      "dependsOn": ["astro:sync"],
+      "persistent": true
+    },
+    "astro:preview": {
+      "cache": false,
+      "dependsOn": ["astro:build"],
+      "persistent": true
+    },
+    "astro:sync": {
+      "outputs": [".astro/**"]
+    },
+    "build": {
+      "dependsOn": ["astro:build", "storybook:build"]
     },
     "dev": {
       "cache": false,
-      "dependsOn": ["sync"],
+      "persistent": true,
+      "with": ["astro:dev", "storybook:dev"]
+    },
+    "storybook:build": {
+      "outputs": ["storybook-static/**"]
+    },
+    "storybook:dev": {
+      "cache": false,
       "persistent": true
     },
-    "checks": {
+    "test": {
+      "dependsOn": ["test:checks", "test:e2e", "test:storybook", "test:unit"]
+    },
+    "test:checks": {
       "dependsOn": [
         "astro:check",
         "eslint:check",
         "prettier:check",
         "stylelint:check"
       ]
-    },
-    "preview": {
-      "cache": false,
-      "dependsOn": ["build"],
-      "persistent": true
-    },
-    "sync": {
-      "outputs": [".astro/**"]
     },
     "test:e2e": {
       "outputs": [
