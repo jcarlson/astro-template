@@ -41,13 +41,14 @@
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-standard": "^39.0.0",
     "stylelint-config-tailwindcss": "^1.0.0",
+    "turbo": "^2.5.6",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
   },
   "scripts": {
     "astro": "astro",
+    "astro:check": "astro check",
     "build": "astro build",
-    "check": "astro check",
     "dev": "astro dev",
     "eslint:check": "eslint .",
     "eslint:fix": "eslint . --fix",
@@ -57,6 +58,8 @@
     "preview": "astro preview",
     "stylelint:check": "stylelint '**/*.{astro,css}'",
     "stylelint:fix": "stylelint '**/*.{astro,css}' --fix",
-    "test": "vitest"
+    "sync": "astro sync",
+    "test:e2e": "playwright test",
+    "test:unit": "vitest run"
   }
 }

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "astro:check": {
+      "dependsOn": ["sync"]
+    },
+    "build": {
+      "dependsOn": ["sync"],
+      "outputs": ["dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "dependsOn": ["sync"],
+      "persistent": true
+    },
+    "checks": {
+      "dependsOn": [
+        "astro:check",
+        "eslint:check",
+        "prettier:check",
+        "stylelint:check"
+      ]
+    },
+    "preview": {
+      "cache": false,
+      "dependsOn": ["build"],
+      "persistent": true
+    },
+    "sync": {
+      "outputs": [".astro/**"]
+    },
+    "test:e2e": {
+      "outputs": ["playwright-report/index.html"]
+    }
+  },
+  "ui": "tui"
+}
