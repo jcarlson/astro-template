@@ -25,8 +25,7 @@
         "tsconfig.json",
         "types.d.ts"
       ],
-      "outputLogs": "new-only",
-      "outputs": [".astro/**"]
+      "outputLogs": "new-only"
     },
     "astro:dev": {
       "dependsOn": ["astro:sync"],
@@ -95,7 +94,7 @@
       "outputLogs": "new-only"
     },
     "test": {
-      "dependsOn": ["test:checks", "test:e2e", "test:storybook", "test:unit"]
+      "dependsOn": ["test:checks", "test:e2e", "test:unit"]
     },
     "test:checks": {
       "dependsOn": [
@@ -117,23 +116,11 @@
       "outputLogs": "new-only",
       "outputs": ["playwright-report/index.html", "test-results/**"]
     },
-    "test:storybook": {
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!e2e/",
-        "!test/",
-        "!astro.config.ts",
-        "!playwright.config.ts"
-      ],
-      "outputLogs": "new-only"
-    },
     "test:unit": {
       "inputs": [
         "$TURBO_DEFAULT$",
-        "!.storybook/",
         "!e2e/",
         "!public/",
-        "!stories/",
         "!playwright.config.ts"
       ],
       "outputLogs": "new-only"

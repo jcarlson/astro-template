@@ -20,22 +20,6 @@ jobs:
       - name: Run Checks
         run: turbo run test:checks --continue
 
-  test-storybook:
-    name: Run Storybook Tests
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v5
-
-      - name: Setup Environment
-        uses: ./.github/actions/setup-environment
-
-      - name: Setup Playwright
-        uses: ./.github/actions/setup-playwright
-
-      - name: Run Storybook Tests
-        run: turbo run test:storybook
-
   test-unit:
     name: Run Unit Tests
     runs-on: ubuntu-latest

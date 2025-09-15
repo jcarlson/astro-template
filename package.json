@@ -72,7 +72,6 @@
     "stylelint:check": "stylelint '**/*.{astro,css}'",
     "stylelint:fix": "stylelint '**/*.{astro,css}' --fix",
     "test:e2e": "playwright test",
-    "test:storybook": "vitest run --project storybook",
-    "test:unit": "vitest run --project astro --project react"
+    "test:unit": "vitest run"
   }
 }
