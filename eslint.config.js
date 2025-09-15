@@ -44,6 +44,23 @@ export default [
       },
     },
   },
+  {
+    files: ["playwright.config.ts"],
+    languageOptions: {
+      globals: {
+        process: "readonly",
+      },
+    },
+  },
+  {
+    files: ["e2e/**/*.ts"],
+    languageOptions: {
+      globals: {
+        localStorage: "readonly",
+        window: "readonly",
+      },
+    },
+  },
   ...astro.configs.recommended,
   prettier,
 ];

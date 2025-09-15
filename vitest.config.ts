@@ -18,7 +18,7 @@ const vitestConfig = defineConfig({
         test: {
           environment: "jsdom",
           include: ["test/**/*.test.tsx"],
-          name: "react"
+          name: "react",
         },
       },
     ],

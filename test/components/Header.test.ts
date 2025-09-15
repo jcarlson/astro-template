@@ -1,15 +1,15 @@
-import { experimental_AstroContainer as AstroContainer } from 'astro/container'
-import { describe, expect, test } from 'vitest'
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { describe, expect, test } from "vitest";
 
-import Header from "@/components/Header.astro"
+import Header from "@/components/Header.astro";
 import { SITE_TITLE } from "@/consts.ts";
 
-describe('Header', () => {
+describe("Header", () => {
   test("It renders", async () => {
     const container = await AstroContainer.create();
 
-    const result = await container.renderToString(Header)
+    const result = await container.renderToString(Header);
 
     expect(result).toContain(SITE_TITLE);
-  })
-})
+  });
+});
