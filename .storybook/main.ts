@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import { resolve } from 'path';
 
 import { join, dirname } from "path"
 
@@ -20,6 +21,14 @@ const config: StorybookConfig = {
   "framework": {
     "name": getAbsolutePath('@storybook/react-vite'),
     "options": {}
+  },
+  "viteFinal": async (config) => {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': resolve(__dirname, '../src'),
+    };
+    return config;
   }
 };
 export default config;
