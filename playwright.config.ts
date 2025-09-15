@@ -74,7 +74,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: "turbo run preview",
+    command: "turbo run astro:preview",
     url: ASTRO_URL,
     reuseExistingServer: !process.env.CI,
   },
