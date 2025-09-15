@@ -60,12 +60,12 @@
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "preview": "astro preview",
+    "storybook:build": "storybook build",
+    "storybook:dev": "storybook dev --no-open --port 6006",
     "stylelint:check": "stylelint '**/*.{astro,css}'",
     "stylelint:fix": "stylelint '**/*.{astro,css}' --fix",
     "sync": "astro sync",
     "test:e2e": "playwright test",
-    "test:unit": "vitest run",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test:unit": "vitest run"
   }
 }
