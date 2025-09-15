@@ -1,0 +1,25 @@
+name: Setup playwright
+description: Configures a GitHub Actions runner for Playwright
+
+runs:
+  using: composite
+
+  steps:
+    - name: Cache Browsers
+      id: playwright-cache
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/ms-playwright
+        key: Playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          Playwright
+
+    - name: Install Browsers
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: pnpx playwright install --with-deps
+
+    - name: Install Dependencies
+      if: steps.playwright-cache.outputs.cache-hit == 'true'
+      shell: bash
+      run: pnpx playwright install-deps

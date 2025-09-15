@@ -8,6 +8,9 @@
       "dependsOn": ["sync"],
       "outputs": ["dist/**"]
     },
+    "ci": {
+      "dependsOn": ["checks", "test:unit", "test:e2e"]
+    },
     "dev": {
       "cache": false,
       "dependsOn": ["sync"],
