@@ -31,3 +31,6 @@ pnpm-debug.log*
 
 # Turborepo
 .turbo/
+
+*storybook.log
+storybook-static
