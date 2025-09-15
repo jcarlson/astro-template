@@ -16,6 +16,7 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  staticDirs: ["../public"],
   viteFinal: async (config) => {
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
