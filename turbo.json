@@ -33,7 +33,10 @@
       "outputs": [".astro/**"]
     },
     "test:e2e": {
-      "outputs": ["playwright-report/index.html"]
+      "outputs": [
+        "playwright-report/index.html",
+        "test-results/**"
+      ]
     }
   },
   "ui": "tui"
