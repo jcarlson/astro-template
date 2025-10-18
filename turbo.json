@@ -52,21 +52,26 @@
     "build": {
       "dependsOn": ["astro:build", "storybook:build"]
     },
+    "check": {
+      "dependsOn": [
+        "astro:check",
+        "eslint:check",
+        "prettier:check",
+        "stylelint:check"
+      ]
+    },
+    "ci": {
+      "dependsOn": ["check", "test"]
+    },
     "dev": {
       "cache": false,
+      "interactive": true,
       "persistent": true,
       "with": ["astro:dev", "storybook:dev"]
     },
     "eslint:check": {
       "dependsOn": ["astro:sync"],
-      "inputs": [
-        "*.{js,ts}",
-        ".storybook/**/*.{js,jsx,ts,tsx}",
-        "e2e/**/*.{js,jsx,ts,tsx}",
-        "src/**/*.{js,jsx,ts,tsx}",
-        "stories/**/*.{js,jsx,ts,tsx}",
-        "test/**/*.{js,jsx,ts,tsx}"
-      ],
+      "inputs": ["**/*.{js,ts}", "!.astro/"],
       "outputLogs": "new-only"
     },
     "prettier:check": {
@@ -94,17 +99,13 @@
       "outputLogs": "new-only"
     },
     "test": {
-      "dependsOn": ["test:checks", "test:e2e", "test:unit"]
-    },
-    "test:checks": {
       "dependsOn": [
-        "astro:check",
-        "eslint:check",
-        "prettier:check",
-        "stylelint:check"
+        "playwright:test",
+        "vitest:run:storybook",
+        "vitest:run:unit"
       ]
     },
-    "test:e2e": {
+    "playwright:test": {
       "dependsOn": ["astro:build"],
       "inputs": [
         "$TURBO_DEFAULT$",
@@ -116,12 +117,23 @@
       "outputLogs": "new-only",
       "outputs": ["playwright-report/index.html", "test-results/**"]
     },
-    "test:unit": {
+    "vitest:run:storybook": {
       "inputs": [
         "$TURBO_DEFAULT$",
         "!e2e/",
         "!public/",
-        "!playwright.config.ts"
+        "!playwright.config.ts",
+        "!test/"
+      ],
+      "outputLogs": "new-only"
+    },
+    "vitest:run:unit": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!e2e/",
+        "!public/",
+        "!playwright.config.ts",
+        "!.storybook/"
       ],
       "outputLogs": "new-only"
     }

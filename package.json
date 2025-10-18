@@ -61,7 +61,6 @@
     "astro:dev": "astro dev",
     "astro:preview": "astro preview",
     "astro:sync": "astro sync",
-    "ci": "CI=1 turbo run test",
     "eslint:check": "eslint .",
     "eslint:fix": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",
@@ -71,7 +70,8 @@
     "storybook:dev": "storybook dev --no-open --port 6006",
     "stylelint:check": "stylelint '**/*.{astro,css}'",
     "stylelint:fix": "stylelint '**/*.{astro,css}' --fix",
-    "test:e2e": "playwright test",
-    "test:unit": "vitest run"
+    "playwright:test": "playwright test",
+    "vitest:run:storybook": "vitest run --project storybook",
+    "vitest:run:unit": "vitest run --project !storybook*"
   }
 }
