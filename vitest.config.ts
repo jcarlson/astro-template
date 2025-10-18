@@ -27,7 +27,6 @@ const vitestConfig = defineConfig({
         },
       },
       {
-        extends: true,
         plugins: [
           storybookTest({ configDir: path.join(__dirname, ".storybook") }),
         ],
