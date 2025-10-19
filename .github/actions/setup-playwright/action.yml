@@ -17,9 +17,9 @@ runs:
     - name: Install Browsers
       if: steps.playwright-cache.outputs.cache-hit != 'true'
       shell: bash
-      run: pnpx playwright install --with-deps
+      run: pnpm exec playwright install --with-deps
 
     - name: Install Dependencies
       if: steps.playwright-cache.outputs.cache-hit == 'true'
       shell: bash
-      run: pnpx playwright install-deps
+      run: pnpm exec playwright install-deps
