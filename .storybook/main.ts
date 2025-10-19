@@ -25,6 +25,19 @@ const config: StorybookConfig = {
       ...config.resolve.alias,
       "@": path.resolve(__dirname, "../src"),
     };
+
+    config.optimizeDeps = config.optimizeDeps || {};
+    config.optimizeDeps.include = [
+      ...(config.optimizeDeps.include || []),
+      "react",
+      "react-dom",
+      "react/jsx-runtime",
+      "react/jsx-dev-runtime",
+    ];
+
+    // Ensure React is treated as external but still optimized
+    config.resolve.dedupe = ["react", "react-dom"];
+
     return config;
   },
 };
